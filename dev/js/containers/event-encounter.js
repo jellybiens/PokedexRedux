@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {showEncounter, eventMessage, enounterIndex, throwHit, throwMiss,
+import {showEncounter, eventMessage, encounterIndex, throwHit, throwMiss,
   pokemonEncountered, pokemonCaught,
   activeIndex, previewIndex, pokedexView} from '../actions/actions-index';
 

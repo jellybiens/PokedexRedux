@@ -26,7 +26,7 @@ import {Provider} from 'react-redux';
 //Component
 //Component is dumb component, no brains
 //Container is Component hooked up to Brains
-import App from './components/app';
+import App from './components/App';
 
 //Step 5
 //Actions
