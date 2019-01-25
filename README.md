@@ -11,7 +11,7 @@ and evolve pokemon you have caught in the pokemon information view
 
 ISSUES
 
-Dragscroll library doesnt work on mobile with the pokemon information with the description goes overflow of the containing div.
+Dragscroll library doesnt work on mobile with the pokemon information when the description goes overflow of the containing div.
 
  
 
