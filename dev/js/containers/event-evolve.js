@@ -12,8 +12,8 @@ class EventEvolve extends Component {
         let evolvePokemon1 = this.props.pokemonArr[evolveId1];
         let evolvePokemon2 = this.props.pokemonArr[evolveId2];
 
-        let imgSource1 = "https:www.smogon.com/dex/media/sprites/xy/" + evolvePokemon1.Name.toLowerCase().replace(" ", "_") + ".gif";
-        let imgSource2 = "https:www.smogon.com/dex/media/sprites/xy/" + evolvePokemon2.Name.toLowerCase().replace(" ", "_") + ".gif";
+        let imgSource1 = "https://www.smogon.com/dex/media/sprites/xy/" + evolvePokemon1.Name.toLowerCase().replace(" ", "_") + ".gif";
+        let imgSource2 = "https://www.smogon.com/dex/media/sprites/xy/" + evolvePokemon2.Name.toLowerCase().replace(" ", "_") + ".gif";
 
 
         let sunRays = [];
