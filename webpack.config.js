@@ -28,6 +28,7 @@ module.exports = {
     },
     output: {
         path: 'src',
+		publicPath: '/',
         filename: 'js/bundle.min.js'
     },
     plugins: [

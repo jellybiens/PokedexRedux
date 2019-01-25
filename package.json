@@ -1,10 +1,12 @@
 {
-  "name": "react-redux-template",
+  "name": "pokedex-redux",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "webpack",
-    "start": "webpack-dev-server"
+    "test": "webpack-dev-server",
+	"start": "node server.js", 
+	"heroku-postbuild": "webpack -p"
   },
   "license": "ISC",
   "dependencies": {
