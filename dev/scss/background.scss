@@ -131,22 +131,20 @@ $slow:21s;
 
     max-width:100%;
     vertical-align: bottom;
-    overflow: hidden;
     z-index: 0;
 
     @media screen and (min-width: $break-large) {
-      grid-row-start: 1;
-      grid-row-end: 1;
-      grid-column-start: 2;
-      grid-column-end: 2;
+      //grid-row-start: 1;
+      //grid-row-end: 1;
+      //grid-column-start: 2;
+      //grid-column-end: 2;
     }
     @media screen and (max-width: $break-small) {
-      grid-row-start: 1;
-      grid-row-end: 1;
-      grid-column-start: 1;
-      grid-column-end: 1;
+      //grid-row-start: 1;
+      //grid-row-end: 1;
+      //grid-column-start: 1;
+      //grid-column-end: 1;
     }
-
 
     .pokeball-div{
       -webkit-transition: 0.2s linear;
@@ -158,8 +156,6 @@ $slow:21s;
 
       width:auto;
       height:auto;
-
-
 
         .pokeball{
           -webkit-transition: 0.2s linear;
@@ -180,8 +176,6 @@ $slow:21s;
               content: "";
               display: block;
             }
-
-
             &:before {
               width: $size;
               height: ($size/2) -($size/25/2);
@@ -189,7 +183,6 @@ $slow:21s;
               border-radius: ($size/2) ($size/2) 0 0;
               background: lighten(#ff0000,30%) ;
             }
-
             &:after {
               width: $size/5;
               height: $size/5;
@@ -204,36 +197,7 @@ $slow:21s;
                           0 0 0 ($size/14) #333,
                           0 0 ($size/10) ($size/17) rgba(0,0,0,0.4);
             }
-
           }
-
       }
-
-
     }
-
-
-
-
-}
-
-
-
-.bg-checkerboard{
-  margin:-10%;
-  height: 120%;
-  width: 120%;
-  @include grid-arrange(1, 3, 1, 3);
-  filter:blur(1px);
-
-  $checkColour1 : lighten(#324eff, 35%); //#baffbf;
-  $checkColour2 : lighten($checkColour1, 5%);
-  background-color: $checkColour2;
-  background-image: linear-gradient(45deg, $checkColour1 25%, transparent 25%),
-                    linear-gradient(-45deg, $checkColour1 25%, transparent 25%),
-                    linear-gradient(45deg, transparent 75%, $checkColour1 75%),
-                    linear-gradient(-45deg, transparent 75%, $checkColour1 75%);
-  background-size: 10px 10px;
-  background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
-  z-index: -100;
 }

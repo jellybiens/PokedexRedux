@@ -16,16 +16,19 @@ class PokemonSearch extends Component {
                       <PokemonList />
                     </div>
 
-                    <div className="pokeball-spin">
-                      <div className="pokeball-div">
-                      <div className="pokeball">
-                        <div className="o-pokeball"></div>
-                      </div>
+                    <div className="pokemon-prev">
+                    <div className="pokeball-spin-container">
+                      <div className="pokeball-spin">
+                        <div className="pokeball-div">
+                          <div className="pokeball">
+                            <div className="o-pokeball"></div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-
-                    <div className="pokemon-prev">
-                      <PokemonPreview />
+                      <div className="prev-img-container">
+                        <PokemonPreview />
+                      </div>
                     </div>
                   </div>
             );

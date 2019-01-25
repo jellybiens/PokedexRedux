@@ -16,7 +16,7 @@ class PokemonPreview extends Component {
 
         let imgClass = this.props.pokemonEncountered ? "preview-img" : "preview-img blackout";
 
-         return (
+         return ( 
                     <img className={imgClass}
                         key={pokemon.id + "x"}
                         src={imgSource}  />

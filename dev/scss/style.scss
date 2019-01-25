@@ -1,9 +1,16 @@
+$previewScale: 2;
+$encounterScale: 1;
+$evolveScale: 1;
+$spinScale: 2;
+$fontSize: 16px;
+$swiperFontSize: 18px; //14px
 
 $break-small: 510px;
 $break-large: 511px;
 
 $primary: #111;
 $pokedex-red: #c00d0d;
+
 
 @mixin browserSupport($propName, $propVar){
 	-webkit-#{$propName}: $propVar;
@@ -40,6 +47,7 @@ $pokedex-red: #c00d0d;
   border: 5px ridge lighten($colour, 20%);
 
   margin:auto;
+
 
   text-align: center;
   padding: .1em;
@@ -82,7 +90,7 @@ html, body, #root{
 	margin: 0 auto;
 	display: -webkit-box;
 	font-family: Courier New;
-  font-size: 14px;
+  font-size: $fontSize;
 }
 
 .links-container{
@@ -129,7 +137,7 @@ div {
 .pokedex{
   margin: 0 auto;
   @include height-width();
-  max-width: 750px;
+  max-width: 1050px;
   display: grid;
   display: -ms-grid;
   @include grid-template();
@@ -269,6 +277,7 @@ div {
               @include grid-template();
               overflow:hidden;
 
+
         			.pokemon-search, .pokemon-info{
         				-webkit-transition: 0.5s linear;
 
@@ -277,13 +286,12 @@ div {
         			.pokemon-search{
         				@include height-width();
         				@include grid-arrange();
-        				grid-gap: 4%;
-
+								grid-gap: 2%;
                 @media screen and (min-width: $break-large) {
-                  @include grid-template(100%, 48% 48%);
+                  @include grid-template(100%, 49% 49%);
                 }
                 @media screen and (max-width: $break-small) {
-                  @include grid-template(48% 48%, 100%);
+                  @include grid-template(49% 49%, 100%);
                 }
 
         				.pokemon-list{
@@ -320,7 +328,7 @@ div {
                         margin-left: auto !important;
                         margin-right: auto !important;
                         .swiper-contents{
-        								   font-size: 14px !important;
+        								   font-size: $swiperFontSize !important;
                         }
                       }
 
@@ -331,7 +339,7 @@ div {
                         @include grid-template(100%, 20% 55% 25%);
 
                         @include browserSupport(filter, contrast(.65));
-        								font-size: 18px;
+        								font-size: $swiperFontSize;
 
         								$colour : #f7ffd3;
         								background: #fff;
@@ -387,9 +395,7 @@ div {
         				}
 
         				.pokemon-prev{
-        					max-width:100%;
-        					vertical-align: bottom;
-        					overflow: hidden;
+        					@include height-width();
 
                   @media screen and (min-width: $break-large) {
                     @include grid-arrange(1,1,2,2);
@@ -398,11 +404,26 @@ div {
                     @include grid-arrange();
                   }
 
-        					.preview-img{
-        						position: relative;
-        						top: 50%;
-        						left: 50%;
-        						@include browserSupport(transform,translate(-50%, -50%) scale(2));
+									@include grid-template();
+									overflow: hidden;
+
+									.pokeball-spin-container{
+										margin:auto;
+										@include height-width(auto,auto);
+										@include grid-arrange();
+
+										.pokeball-spin{
+											@include browserSupport(transform, scale($spinScale));
+										}
+									}
+        					.prev-img-container{
+										margin:auto;
+										@include height-width(auto,auto);
+										@include grid-arrange();
+
+										.preview-img{
+											@include browserSupport(transform, scale($previewScale));
+										}
 
 
         					}
@@ -575,7 +596,7 @@ div {
         											margin: auto 3%;
                               width: 94%;
         											padding: 2% 0%;
-                              font-size: 16px;
+                              font-size: $fontSize;
         										}
 
         					}
@@ -901,7 +922,7 @@ div {
                           @include browserSupport(animation, spin 8s infinite linear);
 
                           .starbust-wheel {
-                            @include height-width(1000px, 1000px);
+                            @include height-width(1500px, 1500px);
                             overflow: hidden;
                             position : absolute;
                             border-radius: 50%;
@@ -953,20 +974,21 @@ div {
                         z-index:3;
 
                         $evoAni: evolve1, evolve2;
-                        $evoScale: 1, 0;
                         @for $i from 1 through length($evoAni) {
                           @keyframes #{nth($evoAni, $i)}{
-                            $scale1: 0;
-                            @if $i == 2 {$scale1: 1}
-                            0%{ @include browserSupport(transform,scale($i % 2));@include browserSupport(filter, brightness(100%)); }
-                            50%{ @include browserSupport(transform,scale($i % 2)); @include browserSupport(filter, brightness(100%)); }
-                            55%{ @include browserSupport(transform,scale($i % 2)); @include browserSupport(filter, brightness(500%)); }
-                            63%{ @include browserSupport(transform,scale($scale1)); @include browserSupport(filter, brightness(500%)); }
-                            71%{ @include browserSupport(transform,scale($i % 2)); @include browserSupport(filter, brightness(500%)); }
-                            79%{ @include browserSupport(transform,scale($scale1)); @include browserSupport(filter, brightness(500%)); }
-                            87%{ @include browserSupport(transform,scale($i % 2)); @include browserSupport(filter, brightness(500%)); }
-                            95%{ @include browserSupport(transform,scale($scale1)); @include browserSupport(filter, brightness(500%)); }
-                            100%{ @include browserSupport(transform,scale($scale1)); @include browserSupport(filter, brightness(100%)); }
+                            $scale1: $evolveScale;
+	                          $scale2: 0;
+                            @if $i == 2 {$scale1: 0}
+                            @if $i == 2 {$scale2: $evolveScale}
+                            0%{ @include browserSupport(transform,scale($scale1));@include browserSupport(filter, brightness(100%)); }
+                            50%{ @include browserSupport(transform,scale($scale1)); @include browserSupport(filter, brightness(100%)); }
+                            55%{ @include browserSupport(transform,scale($scale1)); @include browserSupport(filter, brightness(500%)); }
+                            63%{ @include browserSupport(transform,scale($scale2)); @include browserSupport(filter, brightness(500%)); }
+                            71%{ @include browserSupport(transform,scale($scale1)); @include browserSupport(filter, brightness(500%)); }
+                            79%{ @include browserSupport(transform,scale($scale2)); @include browserSupport(filter, brightness(500%)); }
+                            87%{ @include browserSupport(transform,scale($scale1)); @include browserSupport(filter, brightness(500%)); }
+                            95%{ @include browserSupport(transform,scale($scale2)); @include browserSupport(filter, brightness(500%)); }
+                            100%{ @include browserSupport(transform,scale($scale2)); @include browserSupport(filter, brightness(100%)); }
                           }
                         }
 
@@ -1053,7 +1075,7 @@ div {
                     margin: auto 10% auto 10%;
                     @include height-width(auto, auto);
 
-                    font-size: 18px;
+                    font-size: $fontSize;
                     font-weight: bolder;
                   }
                   .encounter-btn-container{
