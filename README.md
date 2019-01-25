@@ -13,6 +13,7 @@ ISSUES
 
 Dragscroll library doesnt work on mobile with the pokemon information when the description goes overflow of the containing div.
 
+Some divs will randomly load in the incorrect position until the window is resized and it slots back into the correct place, difficult to replicate, seems to be random and happens infrequently
  
 
 TODO
