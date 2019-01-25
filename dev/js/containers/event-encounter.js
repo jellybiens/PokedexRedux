@@ -159,7 +159,7 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
 
 return bindActionCreators({ showEncounter: showEncounter,
-                            enounterIndex: enounterIndex,
+                            encounterIndex: encounterIndex,
                             eventMessage: eventMessage,
                             throwHit: throwHit,
                             throwMiss: throwMiss,
