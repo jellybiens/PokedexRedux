@@ -129,7 +129,7 @@ div {
 .pokedex{
   margin: 0 auto;
   @include height-width();
-  max-width: 750px;
+  max-width: 1050px;
   display: grid;
   display: -ms-grid;
   @include grid-template();
