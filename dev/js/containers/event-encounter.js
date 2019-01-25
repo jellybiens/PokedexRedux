@@ -62,7 +62,7 @@ class EventEncounter extends Component {
     render() {
         let pokemonId = this.props.encounterId;
         let encounterPokemon = this.props.pokemonArr[pokemonId];
-        let imgSource = "https:www.smogon.com/dex/media/sprites/xy/" + encounterPokemon.Name.toLowerCase().replace(" ", "_") + ".gif";
+        let imgSource = "https//:www.smogon.com/dex/media/sprites/xy/" + encounterPokemon.Name.toLowerCase().replace(" ", "_") + ".gif";
 
         let linesTot = this.props.encounterShow ? 100 : 1;
 

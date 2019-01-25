@@ -12,7 +12,7 @@ class PokemonPreview extends Component {
 
     render() {
         let pokemon = this.props.pokemon;
-        let imgSource = "https:www.smogon.com/dex/media/sprites/xy/" + pokemon.Name.toLowerCase().replace(" ", "_") + ".gif";
+        let imgSource = "https://www.smogon.com/dex/media/sprites/xy/" + pokemon.Name.toLowerCase().replace(" ", "_") + ".gif";
 
         let imgClass = this.props.pokemonEncountered ? "preview-img" : "preview-img blackout";
 
