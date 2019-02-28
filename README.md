@@ -1,8 +1,6 @@
 
 Pokedex made with React Redux
 
-live at: https://pokedexredux.herokuapp.com
-
 Code found in /dev/ folder
 
 Search through the pokedex and view different pokemon information.
