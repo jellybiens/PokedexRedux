@@ -1,186 +1,73 @@
-//Step 5
-//Actions
-//Action is part that is returned
-    //Made of 2 parts,
-    //1. type, explains action
-    //2. payload, data to be used
+import {fill_coins_data_set,
+        fill_crypto_type_data_set} from './action-api-calls'
+import {sort_tables,
+        apply_sorting} from './action-sort';
+import {search_for_matches} from './action-search';
 
-    //Action Creator
-    //The state to which the main view should switch
-    //0 = search list
-    //1 = pokemon info view
-    //2 = encounter
-    //3 = evolve
-    export const pokedexView = (view) => {
-
-        return{
-            //Action
-            type: "POKEDEX_VIEW",
-            payload: view
-        }
-    };
+export {fill_coins_data_set,
+        fill_crypto_type_data_set} from './action-api-calls'
+export {sort_tables,
+        apply_sorting} from './action-sort';
+export {search_for_matches} from './action-search';
 
 
 
-
-    //Action Creator
-    //active slide of pokemon being viewed on the
-    //search slides view, used to detect if the Pokemon
-    //ifnormation screen should be shown if the Pokemon
-    //option that has been clicked on is the currently
-    //active slide, if not, the dom will just slide
-    //to the selected option.
-    //(therefor if slide is already the active slide and
-    //is clicked again, then information will show)
-    export const activeIndex = (index) => {
-
-        return{
-            //Action
-            type: "ACTIVE_INDEX",
-            payload: index
-        }
-    };
-
-    //Action Creator
-    //pokemon to be show on the search lsit screen
-    //use to be able to blackout if not yet encountered
-    //or not
-    export const previewIndex = (preview) => {
-
-        return{
-            //Action
-            type: "PREVIEW_INDEX",
-            payload: preview
-        }
-    };
+//views
+  //is the table view flipped to the compare view?
+  export const flip_view = (view) => ({
+    type: 'FLIPPER_VIEW',
+    view
+  })
+  //is a search currently in progress
+  export const update_is_searching = (is) => ({
+    type: 'IS_SEARCHING',
+    is
+  })
+  //search text box value, to maintain after update of currency or refresh
+  export const update_search_text_val = (txt) => ({
+      type: 'SEARCH_BOX_TEXT',
+      txt
+  })
 
 
-    //Action Creator
-    //list of evolutions of the selected pokemon to be
-    //show on the info screen for links to those pokemon also
-    export const selectEvolutions = (evolutions) => {
-        return{
-                //Action
-                type: "EVOLUTIONS_SELECTED",
-                payload: evolutions
-              }
-      };
+//fetch responses
+    export const fetchHasErrored = (bool) => ({
+        type: 'FETCH_HAS_ERRORED',
+        hasErrored: bool
+
+    })
+    export const fetchIsLoading = (bool) => ({
+        type: 'FETCH_IS_LOADING',
+        isLoading: bool
+    })
 
 
+    //ids of all coins filtered
+    export const set_crypto_type_ids = (cryptoTypeIds) => ({
+        type: 'SET_CRYPTO_TYPE_IDS',
+        cryptoTypeIds
+    })
 
-      //Action Creator
-      //list of evolutions of the selected pokemon to be
-      //show on the info screen for links to those pokemon also
-      export const pokemonEncountered = (pokemonAr) => {
+//coins lists and sorting options for the different views
 
-          return{
-                  //Action
-                  type: "POKEMON_ENCOUNTERED",
-                  payload: pokemonAr
-                }
-        };
+    //table view coins sorting options
+    export const view_sort_obj_update = (sortObj) => ({
+        type: 'VIEW_SORT_OBJ',
+        sortObj
+    })
 
-
-
-
-        //Action Creator
-        //list of evolutions of the selected pokemon to be
-        //show on the info screen for links to those pokemon also
-        export const pokemonCaught = (pokemonAr) => {
-            return{
-                    //Action
-                    type: "POKEMON_CAUGHT",
-                    payload: pokemonAr
-                  }
-        };
-
-        //Action Creator
-        //list of evolutions of the selected pokemon to be
-        //show on the info screen for links to those pokemon also
-        export const showEncounter = (show) => {
-            return{
-                    //Action
-                    type: "SHOW_ENCOUNTER",
-                    payload: show
-                  }
-        };
-
-        //Action Creator
-        //list of evolutions of the selected pokemon to be
-        //show on the info screen for links to those pokemon also
-        export const eventMessage = (msg) => {
-            return{
-                    //Action
-                    type: "EVENT_MESSAGE",
-                    payload: msg
-                  }
-        };
-
-
-        //Action Creator
-        //list of evolutions of the selected pokemon to be
-        //show on the info screen for links to those pokemon also
-        export const encounterIndex = (id) => {
-            return{
-                    //Action
-                    type: "POKEMON_ENCOUNTER",
-                    payload: id
-                  }
-        };
-
-
-        //Action Creator
-        //list of evolutions of the selected pokemon to be
-        //show on the info screen for links to those pokemon also
-        export const throwHit = (hit) => {
-            return{
-                    //Action
-                    type: "POKEBALL_CATCH",
-                    payload: hit
-                  }
-        };
-
-
-        //Action Creator
-        //list of evolutions of the selected pokemon to be
-        //show on the info screen for links to those pokemon also
-        export const throwMiss = (miss) => {
-            return{
-                    //Action
-                    type: "POKEBALL_MISS",
-                    payload: miss
-                  }
-        };
-
-        //Action Creator
-        //list of evolutions of the selected pokemon to be
-        //show on the info screen for links to those pokemon also
-        export const showEvolve = (show) => {
-            return{
-                    //Action
-                    type: "SHOW_EVOLVE",
-                    payload: show
-                  }
-        };
-
-        //Action Creator
-        //list of evolutions of the selected pokemon to be
-        //show on the info screen for links to those pokemon also
-        export const evolveIndex1 = (id) => {
-            return{
-                    //Action
-                    type: "EVOLVE_INDEX_1",
-                    payload: id
-                  }
-        };
-
-        //Action Creator
-        //list of evolutions of the selected pokemon to be
-        //show on the info screen for links to those pokemon also
-        export const evolveIndex2 = (id) => {
-            return{
-                    //Action
-                    type: "EVOLVE_INDEX_2",
-                    payload: id
-                  }
-        };
+    //list of coins coins for main screen
+    export const main_coins_list_update = (list) => ({
+        type: 'MAIN_COINS_LIST',
+        list
+    })
+    //list of coins matching search
+    export const search_res_list_update = (list) => ({
+        type: 'SEARCH_RES_LIST',
+        list
+    })
+    //list of coins in compare
+    export const compare_list_update = (list) => ({
+        type: 'COMPARE_LIST',
+        list
+    })

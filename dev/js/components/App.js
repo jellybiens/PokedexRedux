@@ -1,12 +1,12 @@
 import React from 'react';
-import PokemonList from '../containers/pokemon-list';
-import PokedexContainer from '../containers/pokedex-container';
-
+import CoinMarketHeader from '../containers/coin-market-header';
+import CoinMarketTable from '../containers/coin-market-table';
 
 const App = () => (
-
-        <PokedexContainer />
-
+  <div>
+      <CoinMarketHeader />
+      <CoinMarketTable />
+  </div>
 );
 
 export default App;
