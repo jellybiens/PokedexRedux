@@ -62,18 +62,18 @@ class PokemonList extends Component{
             direction: 'vertical',
             slideToClickedSlide: true,
             centeredSlides: centered,
-            effect: 'coverflow',
+            // effect: 'coverflow',
             scrollbar: {
               el: '.swiper-scrollbar',
               hide: false,
               draggable: true,
 
             },
-            coverflowEffect: {
+            //coverflowEffect: {
                                //swiper.js coverflow line 7680 change
                                // var slideTransform = "translateX(" + (-Math.abs(offsetMultiplier * 10)+50) + "px)";
                                // $slideEl.transform(slideTransform);
-                             },
+             //                },
             keyboard: {
             enabled: true,
             onlyInViewport: false
