@@ -549,6 +549,10 @@
                         padding:0 !important;
 
                       }
+                      &:active{
+                        @include browserSupport(transform, scale(.98) translateX(-50%) !important);
+
+                      }
                     }
                   }
 

@@ -489,7 +489,7 @@ div {
 							    top: 50%;
 							    transform: translateY(-50%);
                   height:auto;
-                  max-width: 5em;
+                  //max-width: 5em;
 
                   background: linear-gradient(lighten($coulor, 20%), lighten($coulor, 10%));
                   border: 2px solid $coulor;
@@ -517,7 +517,7 @@ div {
                 [class*="-3"]{
                   height:auto;
                   width:35%;
-                  left:55%;
+                  right:10%;
                 }
 
 
