@@ -12,9 +12,9 @@ class PokemonSearch extends Component {
 
         return(
                   <div className="pokemon-search">
-                    <div className="pokemon-list">
-                      <PokemonList />
-                    </div>
+
+                    <PokemonList />
+                  
 
                     <div className="pokemon-prev">
                     <div className="pokeball-spin-container">

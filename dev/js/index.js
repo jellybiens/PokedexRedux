@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from "react-dom";
 import '../scss/style.scss';
+import '../scss/events.scss';
 import '../scss/background.scss';
 import '../scss/crt.scss';
 import {createStore} from 'redux';

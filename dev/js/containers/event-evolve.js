@@ -33,25 +33,29 @@ class EventEvolve extends Component {
                               </div>
                             </div>
                           </div>
+
                           <div  className="evolve-foreground-container">
-                          <div className="evolve-sprites">
+                            <div className="evolve-sprites">
                               <div  className={this.props.evolveShow ?
-                                                "evolve-sprite1" :
-                                                "evolve-sprite1-disable"}>
-                                <img key={evolvePokemon1.id + "e1"} src={imgSource1} />
+                                                  "evolve-sprite1" :
+                                                  "evolve-sprite1-disable"}>
+                                  <img key={evolvePokemon1.id + "e1"} src={imgSource1} />
                               </div>
                               <div  className={this.props.evolveShow ?
-                                                "evolve-sprite2" :
-                                                "evolve-sprite2-disable"}>
-                                <img key={evolvePokemon2.id + "e2"} src={imgSource2} />
+                                                  "evolve-sprite2" :
+                                                  "evolve-sprite2-disable"}>
+                                  <img key={evolvePokemon2.id + "e2"} src={imgSource2} />
                               </div>
+
+                              <div  className="evolve-base"></div>
+
                             </div>
-                            <div  className="evolve-base"></div>
+
                           </div>
                         </div>
                         <div  className={this.props.evolveShow ?
                                         "event-text-box" : "event-text-box-disable"}>
-                          <span className="evolve-text">{this.props.eventMsg}</span>
+                          <span className="evolve-text" dangerouslySetInnerHTML={{__html: this.props.eventMsg}}></span>
                         </div>
                   </div>
 

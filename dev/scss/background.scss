@@ -8,14 +8,9 @@ $med:18s;
 $slow:21s;
 
 .container {
-  position:relative;
+  position:absolute;
   width:100%;
     height: 100%;
-  display: grid;
-  grid-row-start: 1;
-  grid-row-end: 1;
-  grid-column-start: 1;
-  grid-column-end: 1;
 }
 
 
@@ -162,7 +157,7 @@ $slow:21s;
           $size: 200px;
           // Pokeball code
           .o-pokeball {
-            -webkit-transform:scale(1.5);
+            //-webkit-transform:scale(1.5);
             width: $size;
             height: $size;
             border-radius: $size;

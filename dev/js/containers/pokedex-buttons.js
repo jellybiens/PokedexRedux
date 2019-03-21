@@ -65,7 +65,7 @@ class PokedexButtons extends Component {
 
       this.props.evolveIndex1(evoId1);
       this.props.evolveIndex2(evoId2);
-      this.props.eventMessage("What?! " + evoPokemon.Name + " is evolving!");
+      this.props.eventMessage("What?!<br />" + evoPokemon.Name + " is evolving!");
       this.props.showEvolve(true);
 
       let encounteredUpdated = this.updateArrPokemon(evoId2, this.props.encounteredArr);
@@ -78,7 +78,7 @@ class PokedexButtons extends Component {
 
       setTimeout(() => {
 
-        this.props.eventMessage("Congratulations, " + evoPokemon.Name +
+        this.props.eventMessage("Congratulations,<br />" + evoPokemon.Name +
                                 " evolved into " +
                                 this.props.pokemonArr[evoId2].Name + "!");
 
@@ -109,7 +109,7 @@ class PokedexButtons extends Component {
         allowEvo = this.props.caughtArr.includes(this.props.indexActive) ? true : false;
 
         return(
-              <div className="pokedex-button-container">
+              <div className="pokedex-button-row">
                 <div className="pokedex-button-nav">
                   <div className={this.props.dexView == 0 ? "view-btn disable" :
                                   this.props.encounterShow ? "view-btn disable" :

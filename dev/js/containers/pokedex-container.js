@@ -74,7 +74,7 @@ class PokedexContainer extends Component {
                 <div className="pokedex-container">
                   <div className="pokedex-header">
 
-                    <div className="pokedex-header-container">
+
                       <div className="header-left">
                           <div className="led-box">
                             <div className={this.props.dexView == 0 ? "led-blue led-off" : "led-blue"}></div>
@@ -94,37 +94,37 @@ class PokedexContainer extends Component {
                         </div>
                       </div>
                       </div>
-                    </div>
+
                   </div>
-                  <div className="pokedex-screen-row">
+
                   <div className="screen-shadow">
                     <div className="shadow-black"></div>
                     <div className="shadow-red"></div>
                   </div>
-                    <div className="pokedex-screen">
+
+                  <div className="pokedex-screen-row">
+
+
                       <div className={
                         this.props.dexView == 0 ? "pokedex-screen-container container-off" : "pokedex-screen-container container-on"}
                       >
-                        <div className="screen">
+                        <div className="pokedex-screen-display">
                           <BubbleBackground />
                           <PokedexEvents />
                           <PokemonSearch />
                           <PokemonDetail />
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div className="pokedex-button-row">
-                    <PokedexButtons />
+
                   </div>
 
+                  <PokedexButtons />
+
                   <div className="links-container">
-                    <div className="links">
                       <a href="https://twitter.com/jellybiens_"><img src={twitterImg} /></a>
                       <a href="https://www.linkedin.com/in/ethan-w-a1676a92/"><img src={linkedinImg} /></a>
                       <a href="https://github.com/jellybiens"><img src={githubImg} /></a>
                       <a href="https://ethanwatsonreactcv.herokuapp.com/">Ethan Watson React CV</a>
-                    </div>
                   </div>
                 </div>
 

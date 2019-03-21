@@ -32,12 +32,12 @@ class EventEncounter extends Component {
       var swiper = document.querySelector('.swiper-container').swiper;
       swiper.slideTo(pokemonId);
       setTimeout(() => {
-        this.props.eventMessage(pokemon.Name + " was caught!")
+        this.props.eventMessage("Great throw!<br />" + pokemon.Name + " was caught!")
       }, 2000);
      }else{
        this.props.throwMiss(true);
        setTimeout(() => {
-         this.props.eventMessage(pokemon.Name + " ran away!");
+         this.props.eventMessage("You missed,<br />" + pokemon.Name + " ran away!");
        }, 2500);
      }
 
@@ -82,37 +82,45 @@ class EventEncounter extends Component {
 
                           </div>
                           <div  className="catch-foreground-container">
-                            <div className="pokeball-throw-animation">
-                              <img className={this.props.pokeballHit ?
-                                              "pokeball-throw-hit-img" : this.props.pokeballMiss ?
-                                                "pokeball-throw-miss-img" : "pokeball-hold-img"}
-                                   src="https://cdn.bulbagarden.net/upload/a/af/Pok%C3%A9_Ball_battle_IV.png" />
-                            </div>
+
                             <div  className="catch-sprite">
+
+                              <div className="pokeball-throw-animation">
+                                      <img className={this.props.pokeballHit ?
+                                                    "pokeball-throw-hit-img" : this.props.pokeballMiss ?
+                                                    "pokeball-throw-miss-img" : "pokeball-hold-img"}
+                                                    src="https://cdn.bulbagarden.net/upload/a/af/Pok%C3%A9_Ball_battle_IV.png" />
+                              </div>
+
                               <img className={this.props.pokeballHit ?
-                                              "wild-pokemon-caught" : this.props.pokeballMiss ?
-                                                "wild-pokemon-run" : "wild-pokemon"}
-                                key={encounterPokemon.id + "x"}
-                                src={imgSource}  />
-                            </div>
-                            <div  className="catch-base"></div>
-                            <div className={this.props.pokeballHit ?
-                                            "catch-radius-container-disable" : this.props.pokeballMiss ?
-                                              "catch-radius-container-disable" : "catch-radius-container"}>
-                              <div  className="catch-retical-container">
-                                <div  className={this.props.encounterShow ?
-                                                  "catch-retical" :
-                                                  "catch-retical-disable"}></div>
+                                                "wild-pokemon wild-pokemon-caught" : this.props.pokeballMiss ?
+                                                  "wild-pokemon wild-pokemon-run" : "wild-pokemon"}
+                                                  key={encounterPokemon.id + "x"}
+                                                  src={imgSource}  />
+
+                              <div  className="catch-base"></div>
+
+                              <div className={this.props.pokeballHit ?
+                                                "catch-radius-container-disable" : this.props.pokeballMiss ?
+                                                "catch-radius-container-disable" : "catch-radius-container"}>
+
+                                <div  className="catch-retical-container">
+                                  <div  className={this.props.encounterShow ? "catch-retical" : "catch-retical-disable"}></div>
+                                </div>
+
+                                <div className="catch-radius-container">
+                                  <div className="catch-radius"></div>
+                                </div>
+
                               </div>
-                              <div className="catch-radius-container">
-                                <div className="catch-radius"></div>
-                              </div>
+
                             </div>
+
                           </div>
                         </div>
                         <div  className={this.props.encounterShow ?
                                           "event-text-box" : "event-text-box-disable"}>
-                                            <span className="encounter-text">{this.props.eventMsg}</span>
+                                            <span className="encounter-text" dangerouslySetInnerHTML={{__html: this.props.eventMsg}}></span>
                                             <div className="encounter-btn-container">
                                                 <div className={this.props.pokeballHit ?
                                                                 "throw-btn-hide" : this.props.pokeballMiss ?

@@ -31,7 +31,7 @@ class PokemonList extends Component{
                         className="swiper-slide"
                         onClick={() => this.handleListSelect(pokemon, i) }
                     >
-                      <div className="swiper-contents">
+                      <div className="slide-contents">
                         <div className="pokeNo"><span>{pokemon.id}</span></div>
                         <div className="pokeName"><span>{pokemon.Name}</span></div>
                         <div className="catch-status-container">
@@ -46,15 +46,18 @@ class PokemonList extends Component{
     resize(){
       var slidesPerVue = window.innerWidth > 510 ? 7 : 4;
       var centered = window.innerWidth > 510 ? true : false;
+      //var effect = window.innerWidth > 510 ? "coverflow" : "none";
       var swiper = document.querySelector('.swiper-container').swiper;
       swiper.params.slidesPerView = slidesPerVue;
       swiper.params.centeredSlides = centered;
+      //swiper.params.effect = effect;
       swiper.update();
     }
 
     componentDidMount(){
       var slidesPerVue = window.innerWidth > 510 ? 7 : 4;
       var centered = window.innerWidth > 510 ? true : false;
+      var effect = window.innerWidth > 510 ? "coverflow" : "none";
       var swiper = new Swiper('.swiper-container', {
             spaceBetween: 12,
             slidesPerView: slidesPerVue,
@@ -62,22 +65,16 @@ class PokemonList extends Component{
             direction: 'vertical',
             slideToClickedSlide: true,
             centeredSlides: centered,
-            effect: 'coverflow',
-            scrollbar: {
-              el: '.swiper-scrollbar',
-              hide: false,
-              draggable: true,
-
+            keyboard: {
+              enabled: true,
+              onlyInViewport: false,
             },
-            coverflowEffect: {
+            //effect: effect,
+            //coverflowEffect: {
                                //swiper.js coverflow line 7680 change
                                // var slideTransform = "translateX(" + (-Math.abs(offsetMultiplier * 10)+50) + "px)";
                                // $slideEl.transform(slideTransform);
-                             },
-            keyboard: {
-            enabled: true,
-            onlyInViewport: false
-          }
+             //                },
         });
           var swiper = document.querySelector('.swiper-container').swiper;
           swiper.on('slideChange', () => {
@@ -100,9 +97,8 @@ class PokemonList extends Component{
     render() {
 
         return (
-                  <div className="pokemon-list-container">
+                  <div className="pokemon-list">
                     <div className="swiper-container">
-                    <div className="swiper-scrollbar"></div>
                       <div className="swiper-wrapper" >
                         {this.createListItems()}
                       </div>

@@ -7678,8 +7678,12 @@
         if (Math.abs(rotateX) < 0.001) { rotateX = 0; }
 
                 //var slideTransform = "translateX(" + ((-Math.abs(offsetMultiplier * 10)+50)/2.5) + "%)";
-                var slideTransform = "translateX(" + (-Math.abs(offsetMultiplier * 10)+40) + "px)";
 
+                var slidePostion = (-Math.abs(offsetMultiplier * 10)+40);
+                var slideTransform = slidePostion < 0 ? "" : "translateX(" + slidePostion + "px)";
+
+                //var slideTransform = "translateX(" + slidePostion + "px)";
+        
         $slideEl.transform(slideTransform);
         $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
         if (params.slideShadows) {
