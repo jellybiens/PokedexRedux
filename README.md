@@ -1,5 +1,7 @@
 
 Pokedex made with React Redux
+- Babel/Webpack
+- SCSS
 
 live at: https://pokedexredux.herokuapp.com
 
@@ -11,14 +13,22 @@ Encounter pokemon and catch them with the encounter button on list view, and evo
 
 ISSUES
 
-Dragscroll library doesnt work on mobile with the pokemon information when the description goes overflow of the containing div.
+Dragscroll library doesnt work on mobile with the pokemon information description box when the description goes overflow of the containing div.
 
-Some divs will randomly load in the incorrect position until the window is resized and it slots back into the correct place, difficult to replicate, seems to be random and happens infrequently
 
-TODO
 
-Create web service that hosts the pokemon images for the app to call for, reducing reliance on external 3rd party sites hosting the images. Then create a procedure that downloads and updates the images with the latest available when new games come out and their sprites are made available online.
+FUTURE DEVELOPMENT
+
+Change Pokemon data source from test data in Redux Store to using the PokeAPI
+Using api calls through Node server to gather data
+Filter this data with mongodb or postgreSQL
+Implement GraphQL for calling this data from a backend database
+
+This more accurate data will cause some design layout issues as there is more in depth data not yet account for with output (eg. evolution trees that split or mega evolutions) so small changes to the UI and data manipulation will need to be implemented.
 
 Add sounds and event music.
 
-Improve pokemon data accuracy and add more pokemon from later game generations, including branching evolutions and temporary mega evolutions.
+Possible future development
+Considering some form of login system and userbase for retaining user data
+Either that or simply using cookies/localstorage to retain pokemon previously caught/seen/evolved on each device
+
